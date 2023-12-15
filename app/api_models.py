@@ -15,6 +15,12 @@ blog_post_model = {
     'likes': fields.Integer,
 }
 
+req_signup_model = api.model("Sign Up Request", {
+    "username": fields.String(description="Username for the new user", required=True),
+    "email": fields.String(description="Email address for the new user", required=True),
+    "password": fields.String(description="Password for the new user", required=True)
+})
+
 # Model for user search history
 user_history_model = api.model("User History", {
     "id": fields.Integer,
@@ -32,8 +38,7 @@ req_signup_model = api.model("Sign Up Request", {
 # Model for login response
 res_login_model = api.model("Log In Response", {
     "access_token": fields.String
-})from flask_restx import fields
-from .extensions import api
+})
 
 # Model for a blog post
 blog_post_model = {
