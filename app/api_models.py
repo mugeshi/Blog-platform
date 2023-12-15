@@ -85,5 +85,8 @@ profile_details_model = api.model("Profile Details", {
     "password": fields.String(description="User password")
 })
 
-
+user_updated_profile_model = api.model("Updated User Profile", {
+    "username": fields.String,
+    "password": fields.String
+})
 
