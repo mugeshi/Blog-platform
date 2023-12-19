@@ -1,15 +1,11 @@
 from flask import Flask
 from flask_restx import Api, Resource
-from api_models import blog_post_model,profile_details_model,user_updated_profile_model, req_signup_model, SearchHistory, req_login_model,user_history_model,req_history_model
-from extensions import create_app, api, db
+from api_models import profile_details_model,user_updated_profile_model, req_signup_model, SearchHistory, req_login_model,user_history_model,req_history_model
+from extensions import api, db
 from flask_bcrypt import generate_password_hash 
 from model import User 
 import requests
 from flask_jwt_extended import create_access_token, get_jwt_identity, jwt_required, get_jwt
-
-
-app = create_app()
-api.init_app(app)
 
 
 profile_ns = api.namespace('profile', description='Create, update or delete user profile')
@@ -117,28 +113,8 @@ class profile(Resource):
             return {'access_token': access_token}, 200
         else:
             return {"message": "Invalid email or password"}, 401
+    
         
-
-        @login_ns.route('')
-        class LogIn(Resource):
-            @login_ns.expect(req_login_model)
-            def post(self): 
-                """
-                 Log In user and return a JWT token
-                """
-        data = login_ns.payload
-        
-        email = data["email"]
-        password = data["password"]
-        
-        user = User.query.filter_by(email = email).first()
-        
-        if user and user.authenticate(password):
-            access_token = create_access_token(identity={'id': user.id, 'email': email})
-            return {'access_token': access_token}, 200
-        else:
-            return {"message": "Invalid email or password"}, 401
-
 @history_ns.route('')
 class History(Resource):
     
