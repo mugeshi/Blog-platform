@@ -11,7 +11,7 @@ const App = () => {
       <div>
         <NavigationBar />
         <CustomRoutes />
-        {/* Include your other components as needed */}
+        
         <BlogPostList />
       </div>
     </Router>
