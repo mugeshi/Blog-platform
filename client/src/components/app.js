@@ -1,21 +1,25 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Routes from './components/Routes';
-import NavigationBar from './components/NavigationBar';
-import BlogPostList from './components/BlogPostList';
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter as Router } from 'react-router-dom';
+import CustomRoutes from './routes';
+import NavigationBar from './NavigationBar';
+import BlogPostList from './BlogPost';
 
 const App = () => {
   return (
     <Router>
       <div>
         <NavigationBar />
-        <Switch>
-          <Route exact path="/" component={Routes} />
-          <Route path="/blog" component={BlogPostList} />
-        </Switch>
+        <CustomRoutes />
+        {/* Include your other components as needed */}
+        <BlogPostList />
       </div>
     </Router>
   );
 };
+
+const root = document.getElementById('root');
+const appRoot = createRoot(root);
+appRoot.render(<App />);
 
 export default App;

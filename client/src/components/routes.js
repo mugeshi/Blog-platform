@@ -1,15 +1,18 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
-import Home from './Home';
-import BlogPosts from '.components/BlogPosts'; 
-const Routes = () => {
+import {  Routes } from 'react-router-dom';
+
+import BlogPostList from '../components/BlogPost'; 
+
+const CustomRoutes = () => {
   return (
-    <Switch>
-      <Route exact path="/" component={Home} />
-      <Route path="/blog" component={BlogPosts} />
+    
      
-    </Switch>
+      <CustomRoutes>
+ 
+  <Routes path="/blog" component={BlogPostList}/>
+</CustomRoutes>
+   
   );
 };
 
-export default Routes;
+export default CustomRoutes;
