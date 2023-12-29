@@ -11,7 +11,6 @@ const App = () => {
       <div>
         <NavigationBar />
         <CustomRoutes />
-        
         <BlogPostList />
       </div>
     </Router>
