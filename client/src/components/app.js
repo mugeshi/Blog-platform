@@ -1,5 +1,5 @@
 import React from 'react';
-import { createRoot } from 'react-dom/client';
+//import { createRoot } from 'react-dom/client';
 import { BrowserRouter as Router } from 'react-router-dom';
 import CustomRoutes from './routes';
 import NavigationBar from './NavigationBar';
@@ -17,8 +17,8 @@ const App = () => {
   );
 };
 
-const root = document.getElementById('root');
-const appRoot = createRoot(root);
-appRoot.render(<App />);
+//const root = document.getElementById('root');
+//const appRoot = createRoot(root);
+//appRoot.render(<App />);
 
 export default App;
